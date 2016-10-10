@@ -38,4 +38,31 @@ public class PlayerMobility : MonoBehaviour
         animation.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Vertical")));
         GetComponent<Rigidbody2D>().AddForce(gameObject.transform.up * speed * arrowInput);
     }
+
+    /*If the player dies we need to take care of him. Once hit, remove from view and respawn.*/
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        /*If we come into contact with spider.*/
+        if(collision.gameObject.tag == "spider")
+        {
+            Renderer[] rendsArray = GetComponentsInChildren<Renderer>();
+            /*Cycle through all the lists of renderers.*/
+            foreach (Renderer r in rendsArray)
+                r.enabled = false;
+
+            /*Make the player death noise once obtained.*/
+            AudioSource playerDeath = GetComponent<AudioSource>();
+            playerDeath.PlayOneShot(death);
+
+            /*Pause game in order for player to respawn.*/
+            StartCoroutine(pauseGame());
+            GetComponent<BoxCollider2D>().enabled = false; 
+        }
+    }
+    IEnumerator pauseGame()
+    {
+        yield return new WaitForSeconds(2);
+        /*While obsolete, this is an easy way to reload the game itself.*/
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }
