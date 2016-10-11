@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerSpawn : MonoBehaviour {
+public class BazookaShot : MonoBehaviour {
 
 	/*Create an offset to where the rocket launcher is in reference
 	* to the player*/
-	public Vector3 rocketOffset = new Vector3(2.45f, 3.5f, 0);
+	public Vector3 rocketOffset = new Vector3(0.45f, 1f, 0);
 	public GameObject bulletPre;
 	public GameObject fireAnim;
 	int bulletLayer;
@@ -14,7 +14,8 @@ public class PlayerSpawn : MonoBehaviour {
 
 	/*Delay in which the rocket is fired from the launcher. Adjust for sound.*/
 	public float delay = 0.25f;
-	public float coolDown = 0;
+    /*Doesn't need to be adjusted externally.*/
+	float coolDown = 0;
 
 	// Use this for initialization
 	void Start () {

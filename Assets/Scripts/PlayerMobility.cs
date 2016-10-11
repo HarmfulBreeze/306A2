@@ -64,7 +64,7 @@ public class PlayerMobility : MonoBehaviour
     }
     IEnumerator pauseGame()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.3f);
         /*While obsolete, this is an easy way to reload the game itself.*/
         Application.LoadLevel(Application.loadedLevel);
     }

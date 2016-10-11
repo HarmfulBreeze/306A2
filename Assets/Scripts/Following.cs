@@ -13,7 +13,7 @@ public class Following : MonoBehaviour {
 		if (player) {
 			Camera cam = GetComponent<Camera> ();
 			Vector3 point = cam.WorldToViewportPoint (player.position);
-			Vector3 delta = player.position - cam.ViewportToWorldPoint (new Vector3 (0.4f, 0.4f, player.z));
+			Vector3 delta = player.position - cam.ViewportToWorldPoint (new Vector3 (0.4f, 0.4f, point.z));
 			Vector3 dest = transform.position + delta;
 			transform.position = Vector3.SmoothDamp (transform.position, dest, ref veloc, dTime);
 		}

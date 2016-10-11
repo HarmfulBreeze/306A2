@@ -26,9 +26,9 @@ public class Destroy : MonoBehaviour {
 		if (collider.gameObject.tag == "spider" || collider.gameObject.tag == "wall") {
 			/*Now check if it is either a wall or a spider.*/
 			if (collider.gameObject.tag == "spider"){
-				Destroy(collider.gameObject.tag == "spider");
+				Destroy(collider.gameObject);
 				aud.PlayOneShot (deadArachnid);
-				scoreManager.score += 5;
+				ScoreManager.currentScore += 5;
 			}
 			aud.PlayOneShot (explosion);
 			/*Remove the rocket from existence.*/
