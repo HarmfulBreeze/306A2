@@ -50,6 +50,9 @@ public class PlayerMobility : MonoBehaviour
             foreach (Renderer r in rendsArray)
                 r.enabled = false;
 
+			/*Attribution for sound http://soundbible.com/1791-Torture.html*/
+
+
             /*Make the player death noise once obtained.*/
             AudioSource playerDeath = GetComponent<AudioSource>();
             playerDeath.PlayOneShot(death);
