@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/*etc114 
+* Evan Closson
+* 11141737
+* Assignment 2*/
+using UnityEngine;
 using System.Collections;
 
 public class Destroy : MonoBehaviour {
